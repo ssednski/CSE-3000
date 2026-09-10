@@ -1,3 +1,5 @@
+import sys
+
 class TicTacToe:
 
     def __init__(self):
@@ -42,8 +44,14 @@ if __name__ == "__main__":
     TTT.print_matrix()
     while(gamestate == 0):
         col, row = tuple(int(x) for x in input("Enter col and row: ").split())
-        gamestate = TTT.make_move(currentPlayer, col, row)
-        TTT.print_matrix()
-        currentPlayer = currentPlayer * -1
+        if TTT.matrix[col + 3*row] == '_':
+            gamestate = TTT.make_move(currentPlayer, col, row)
+            TTT.print_matrix()
+            currentPlayer = currentPlayer * -1
+        else:
+            sys.stdout.write("\033[1A\033[2K")
+            sys.stdout.flush()
+            print("INVALID MOVE: ", end= '')
+            continue
 
         
