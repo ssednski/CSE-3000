@@ -5,7 +5,7 @@ class TicTacToe:
         self.anti_diag = 0
         self.cols = [0 for _ in range(3)]
         self.rows = [0 for _ in range(3)]
-        self.matrix = [' ' for _ in range(9)]
+        self.matrix = ['_' for _ in range(9)]
 
     def make_move(self, player, col, row) -> int:
 
@@ -26,8 +26,14 @@ class TicTacToe:
         return 0
     def print_matrix(self):
         for x in range(len(self.matrix)):
-            print("|" + self.matrix[x] + "|", end= "")
-            if (x+1)%3 == 0: print("\n")
+            row = (x + 1)%3
+            if row == 1: 
+                print("[" + self.matrix[x], end='')
+            elif row == 2:
+                print("|" + self.matrix[x] + "|", end='')
+            else:
+                print(self.matrix[x] + "]")
+
 if __name__ == "__main__":
     TTT = TicTacToe()
 
