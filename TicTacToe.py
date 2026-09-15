@@ -53,5 +53,5 @@ if __name__ == "__main__":
             sys.stdout.flush()
             print("INVALID MOVE: ", end= '')
             continue
-
-        
+    if gamestate == 1: print("X wins.")
+    if gamestate == -1: print("O wins.")   
